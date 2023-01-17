@@ -16,7 +16,7 @@ RUN apk add --no-cache \
     chmod +x /usr/local/bin/vault-operator && \
     mkdir -p /vault/unlocker && \
     chown -R vault:vault /vault
-VOLUME [/vault/logs, /vault/unlocker]
+VOLUME ["/vault/logs", "/vault/unlocker"]
 # -----------------------------------------------------------------------------
 #                                                                [ ENTRYPOINT ]
 # -----------------------------------------------------------------------------
