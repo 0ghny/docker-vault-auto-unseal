@@ -1,0 +1,6 @@
+# Documentation files
+*.md
+# Test files
+test.yaml
+# examples
+example/

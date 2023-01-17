@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  vault:
+    build:
+      context: ../
+    restart: unless-stopped
+    container_name: vault-as
+    hostname: vault
+    cap_add:
+      - IPC_LOCK
+    environment:
+      - SKIP_CHOWN=true
+      - TZ=Europe/Madrid
+    volumes:
+      - ./vault.json:/vault/config/vault.json:ro
+    expose:
+      - 8200

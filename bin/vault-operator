@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+vault__docker_precheck
+log__init
+vault__wait_for_api
+vault__init
+vault__unseal

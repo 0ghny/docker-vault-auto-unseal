@@ -1,0 +1,53 @@
+schemaVersion: "2.0.0"
+
+fileExistenceTests:
+  - name: 'docker entrypoitn file'
+    path: '/docker-entrypoint.sh'
+    shouldExist: true
+    permissions: '-rwxrwxrwx'
+    uid: 0
+    gid: 0
+    isExecutableBy: 'owner'
+  - name: '/vault/unlocker folder'
+    path: '/vault/unlocker'
+    shouldExist: true
+    permissions: 'drwxr-xr-x'
+    uid: 100
+    gid: 1000
+  - name: 'lib log.sh available'
+    path: '/usr/local/lib/sh/log.sh'
+    shouldExist: true
+    permissions: '-rwxrwxrwx'
+    uid: 0
+    gid: 0
+    isExecutableBy: 'owner'
+  - name: 'lib vault_docker.sh available'
+    path: '/usr/local/lib/sh/vault_docker.sh'
+    shouldExist: true
+    permissions: '-rwxrwxrwx'
+    uid: 0
+    gid: 0
+    isExecutableBy: 'owner'
+  - name: 'lib vault_utils.sh available'
+    path: '/usr/local/lib/sh/vault_utils.sh'
+    shouldExist: true
+    permissions: '-rwxrwxrwx'
+    uid: 0
+    gid: 0
+    isExecutableBy: 'owner'
+  - name: 'vault-operator available'
+    path: '/usr/local/bin/vault-operator'
+    shouldExist: true
+    permissions: '-rwxrwxrwx'
+    uid: 0
+    gid: 0
+    isExecutableBy: 'owner'
+
+commandTests:
+  - name: "vault-operator installation"
+    command: "which"
+    args: ["vault-operator"]
+    expectedOutput: ["/usr/local/bin/vault-operator\n"]
+
+metadataTest:
+  entrypoint: [ '/docker-entrypoint.sh']
